@@ -17,6 +17,46 @@
   background-color: #9e9ea0;
 }
 
+/* @keyframes */
+
+/* Ao criar um keyframe nomeá-lo, e colocá-lo no css no eleemtno que gostaia de animar + tempo (ex 10s) */
+
+@keyframes entering {
+  0% {
+    background-color: #727275;
+  }
+  20% {
+    background-color: #727275;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 
+Quando você quer apenas sair de um ponto para outro, você pode utilizar o from to .
+
+@keyframes fromTo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
+@keyframes fromTo {
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 body {
   background-color: #121215;
@@ -27,6 +67,10 @@ body {
   grid-template-areas: "profile timeline";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100vh;
+  /* animation: entering 10s; */
+}
+aside * {
+  animation: fromTo 2s ease-in-out;
 }
 
 aside {
@@ -70,8 +114,8 @@ aside span {
 nav {
   padding: 64px;
   grid-area: "timeline";
-
   overflow-y: scroll;
+  animation: fromTo 2s ease-in-out;
 }
 .memory__box {
   display: flex;
@@ -97,6 +141,19 @@ nav {
   height: 280px;
   object-fit: cover;
   border-radius: 8px;
+  /* efeito transition é aplicado no elemento que está sendo modificado */
+  transition: transform 0.5s ease-in-out;
+}
+
+.memory__box:hover img {
+  transform: scale(1.1);
+}
+
+.memory__box div {
+  width: 100%;
+  height: 280px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .memory__box p {
