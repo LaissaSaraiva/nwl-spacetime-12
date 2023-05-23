@@ -182,6 +182,14 @@ nav {
       "timeline";
   }
 
+  h2 {
+    text-align: center;
+  }
+
+  p {
+    text-align: justify;
+  }
+
   aside {
     border-right: none;
     padding: 32px 12px;
